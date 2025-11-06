@@ -50,7 +50,4 @@ python.exe -m pip install --upgrade pip
 
 # Instalar dependências básicas
 pip install ipykernel jupyter
-
-# Instalar bibliotecas do projeto
-pip install pandas scikit-learn numpy xgboost lightgbm catboost matplotlib seaborn
 ```
