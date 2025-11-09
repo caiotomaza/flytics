@@ -35,19 +35,51 @@ Este projeto utiliza técnicas de análise exploratória de dados e algoritmos d
 
 ## ⚙️ Como rodar?
 
+### 🪟 Windows
+
 ```bash
-# Criar ambiente virtual
-python3 -m venv venv
+# Etapa 0: Corrige problema de política de execução do PowerShell para permitir a ativação (temporário)
+Set-ExecutionPolicy RemoteSigned -Scope Process
 
-# Ativar no Linux/Mac
-source venv/bin/activate
+# Etapa 1: Cria o ambiente virtual chamado .venv usando especificamente o Python
+python -m venv .venv
 
-# Ativar no Windows
-.\venv\Scripts\Activate.ps1
+# Etapa 2: Ativa o ambiente virtual para que os comandos 'pip' instalem APENAS nele
+.\.venv\Scripts\Activate.ps1
+# *** Verifique se o seu prompt mudou para (.venv) PS C:\... ***
 
-# Atualizar pip
-python.exe -m pip install --upgrade pip
+# Etapa 3: Atualiza o pip dentro do ambiente (Comum para todos os sistemas)
+python -m pip install --upgrade pip
 
-# Instalar dependências básicas
+# Etapa 4: Instala/Atualiza as ferramentas de construção
+pip install --upgrade setuptools wheel
+
+# Etapa 5: Instala os pacotes desejados
 pip install ipykernel jupyter
+```
+
+### 🪟 Linux/macOS
+
+```bash
+# 1. Cria o ambiente virtual chamado .venv usando especificamente o Python
+python -m venv .venv
+
+# 2. Ativa o ambiente virtual (usa 'source' no Linux/macOS)
+source .venv/bin/activate
+# *** Verifique se o seu prompt mudou para (.venv) ***
+
+# 3. Atualiza o pip dentro do ambiente
+python -m pip install --upgrade pip
+
+# 4. Instala/Atualiza as ferramentas de construção
+pip install --upgrade setuptools wheel
+
+# 5. Instala os pacotes desejados
+pip install ipykernel jupyter
+```
+
+### 💀 Como desativas o ambiente virtual no terminal?
+
+```bash
+deactivate
 ```
